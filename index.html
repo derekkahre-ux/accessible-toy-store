@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accessible Toy Store | Inclusive Play for Everyone</title>
+</head>
+<body>
+
+    <!-- Skip Link: A hidden link that lets keyboard-only users jump straight to the content -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Header & Navigation -->
+    <header>
+        <div class="logo">Accessible Toy Store</div>
+        <nav aria-label="Main Navigation">
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/shop">Shop Toys</a></li>
+                <li><a href="/about">Our Mission</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content Area -->
+    <main id="main-content">
+        
+        <!-- Hero Section -->
+        <section aria-labelledby="hero-heading">
+            <h1 id="hero-heading">Toys Designed for Every Child's Imagination</h1>
+            <p>Explore our curated collection of sensory-friendly, adaptive, and accessible toys.</p>
+            <a href="/shop" class="btn">Browse Collection</a>
+        </section>
+
+        <!-- Featured Products Grid -->
+        <section aria-labelledby="featured-heading">
+            <h2 id="featured-heading">Featured Accessible Toys</h2>
+            <div class="product-grid">
+
+                <!-- Product 1 -->
+                <article class="product-card">
+                    <!-- alt text describes the item clearly for visually impaired users -->
+                    <img src="sensory-blocks.jpg" alt="Set of 6 wooden blocks with distinct tactile textures and high-contrast colors.">
+                    <h3>Tactile Sensory Blocks</h3>
+                    <p class="price">$24.99</p>
+                    <!-- aria-label gives context so a screen reader doesn't just hear "Add to Cart" repeatedly -->
+                    <button aria-label="Add Tactile Sensory Blocks to cart">Add to Cart</button>
+                </article>
+
+                <!-- Product 2 -->
+                <article class="product-card">
+                    <img src="braille-puzzle.jpg" alt="Wooden alphabet puzzle featuring both raised letters and engraved Braille dots.">
+                    <h3>Braille Alphabet Puzzle</h3>
+                    <p class="price">$19.99</p>
+                    <button aria-label="Add Braille Alphabet Puzzle to cart">Add to Cart</button>
+                </article>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Accessible Toy Store. Built with inclusion in mind.</p>
+    </footer>
+
+</body>
+</html>
