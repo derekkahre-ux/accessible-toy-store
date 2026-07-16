@@ -3,71 +3,87 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Accessible Toy Store | Inclusive Play for Everyone</title>
+    <!-- Clean, professional title for customers -->
+    <title>Archival Play | Vintage Happy Meal & Retro Toys</title>
     
-    <!-- SEO & Accessibility Search Description -->
-    <meta name="description" content="An e-commerce storefront dedicated to sensory-friendly, adaptive, and accessible toys designed for children of all abilities. Built with WCAG compliance.">
+    <!-- Clean SEO description (no tech-speak, just good marketing) -->
+    <meta name="description" content="Relive your childhood with our curated collection of vintage McDonald's and retro Happy Meal toys. Carefully collected, safely shipped.">
     
-    <!-- Responsive Image Styling to prevent Layout Shifts -->
     <style>
         img {
             max-width: 100%;
             height: auto;
         }
+        /* Hidden off-screen until a keyboard user tabs to it */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: #D12626; /* Fun retro red instead of boring black */
+            color: #fff;
+            padding: 10px;
+            z-index: 100;
+            font-family: sans-serif;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .skip-link:focus {
+            top: 0;
+        }
     </style>
 </head>
 <body>
 
-    <!-- Skip Link: Allows keyboard-only users to jump past navigation -->
+    <!-- Accessible skip link remains, but is invisible to casual mouse users -->
     <a href="#main-content" class="skip-link">Skip to main content</a>
 
-    <!-- Header & Navigation -->
     <header>
-        <div class="logo">Accessible Toy Store</div>
+        <div class="logo">Archival Play</div>
         <nav aria-label="Main Navigation">
             <ul>
                 <li><a href="/">Home</a></li>
                 <li><a href="/shop">Shop Toys</a></li>
-                <li><a href="/about">Our Mission</a></li>
+                <li><a href="/about">Our Story</a></li>
             </ul>
         </nav>
     </header>
 
-    <!-- Main Content Area -->
     <main id="main-content">
         
-        <!-- Hero Section -->
         <section aria-labelledby="hero-heading">
-            <h1 id="hero-heading">Toys Designed for Every Child's Imagination</h1>
-            <p>Explore our curated collection of sensory-friendly, adaptive, and accessible toys.</p>
-            <a href="/shop" class="btn">Browse Collection</a>
+            <!-- Warm, nostalgic copywriting -->
+            <h1 id="hero-heading">Bring Home a Piece of Your Childhood</h1>
+            <p>Explore a carefully curated archive of rare McDonald's toys from decades of collecting.</p>
+            <a href="/shop" class="btn">Browse the Archive</a>
         </section>
 
-        <!-- Featured Products Grid -->
         <section aria-labelledby="featured-heading">
-            <h2 id="featured-heading">Featured Accessible Toys</h2>
+            <h2 id="featured-heading">Featured Collectibles</h2>
             <div class="product-grid">
 
-                <!-- Product 1 -->
+                <!-- Product 1 (Clean structural accessibility, pure nostalgia copy) -->
                 <article class="product-card">
-                    <img src="sensory-blocks.jpg" 
-                         alt="Set of 6 wooden blocks with distinct tactile textures and high-contrast colors."
+                    <img src="changeable-burger.jpg" 
+                         alt="1989 McDonald's Changeable toy. A plastic hamburger that transforms into a robot."
                          width="300"
                          height="300">
-                    <h3>Tactile Sensory Blocks</h3>
-                    <p class="price">$24.99</p>
-                    <button aria-label="Add Tactile Sensory Blocks to cart">Add to Cart</button>
+                    <h3>1989 Hamburger Changeable (Robot)</h3>
+                    <p class="condition">Condition: Excellent (Loose)</p>
+                    <p class="price">$12.99</p>
+                    <!-- Screen readers hear the specific product name, customers just see "Add to Cart" -->
+                    <button aria-label="Add 1989 Hamburger Changeable to cart">Add to Cart</button>
                 </article>
 
                 <!-- Product 2 -->
                 <article class="product-card">
-                    <img src="braille-puzzle.jpg" 
-                         alt="Wooden alphabet puzzle featuring both raised letters and engraved Braille dots."
+                    <img src="mcnugget-buddy-halloween.jpg" 
+                         alt="1992 Halloween McNugget Buddy wearing a removable purple witch hat."
                          width="300"
                          height="300">
-                    <h3>Braille Alphabet Puzzle</h3>
-                    <p class="price">$19.99</p>
-                    <button aria-label="Add Braille Alphabet Puzzle to cart">Add to Cart</button>
+                    <h3>1992 Witch Halloween McNugget Buddy</h3>
+                    <p class="condition">Condition: Minor paint wear</p>
+                    <p class="price">$9.50</p>
+                    <button aria-label="Add 1992 Witch Halloween McNugget Buddy to cart">Add to Cart</button>
                 </article>
 
             </div>
@@ -75,9 +91,9 @@
 
     </main>
 
-    <!-- Footer -->
     <footer>
-        <p>&copy; 2026 Accessible Toy Store. Built with inclusion in mind.</p>
+        <!-- Professional, warm copyright -->
+        <p>&copy; 2026 Archival Play. Dedicated to preserving play.</p>
     </footer>
 
 </body>
