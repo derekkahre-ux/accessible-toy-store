@@ -11,11 +11,11 @@
   --color-card-bg: #FFFFFF;      /* Clean White for product card backdrops */
   --color-border: #E6DFD5;        /* Soft border color for structure */
 
-  /* Typography (Relative units to respect user browser font-size settings) */
+  /* Typography */
   --font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
 
-/* Base resets & focus state defaults */
+/* Base resets */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -30,14 +30,26 @@ body {
   padding: 0;
 }
 
-/* Ensure ALL keyboard focus indicators are thick and highly visible (Required for AAA) */
+/* Highly visible keyboard focus indicators (AAA standard) */
 *:focus-visible {
   outline: 4px solid var(--color-accent);
   outline-offset: 4px;
 }
 
+/* Screen reader utility helper (visually hidden but readable by screen readers) */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
 /* ==========================================================================
-   2. Layout & Structure
+   2. Layout & Header
    ========================================================================== */
 header {
   border-bottom: 3px solid var(--color-primary);
@@ -48,7 +60,6 @@ header {
   gap: 1rem;
 }
 
-/* Desktop spacing adjustment */
 @media (min-width: 768px) {
   header {
     flex-direction: row;
@@ -66,10 +77,10 @@ header {
 nav ul {
   display: flex;
   list-style: none;
+  align-items: center;
   gap: 1.5rem;
 }
 
-/* Anchor styling - ensuring 4.5:1 ratio for larger links */
 nav a {
   color: var(--color-text-main);
   text-decoration: none;
@@ -84,6 +95,42 @@ nav a:hover {
   border-bottom: 2px solid var(--color-accent);
 }
 
+/* Clean, accessible custom style for header cart button */
+.cart-nav-btn {
+  background: none;
+  border: none;
+  font-family: inherit;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  color: var(--color-text-main);
+  padding: 0.5rem;
+  border-bottom: 2px solid transparent;
+  transition: border-color 0.2s ease;
+}
+
+.cart-nav-btn:hover {
+  border-bottom: 2px solid var(--color-accent);
+}
+
+/* Skip-to-content link (hidden offscreen until focused by keyboard tab) */
+.skip-link {
+  position: absolute;
+  top: -60px;
+  left: 0;
+  background: var(--color-primary);
+  color: #FFFFFF;
+  padding: 10px 15px;
+  z-index: 100;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 0 0 4px 0;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
 main {
   max-width: 1100px;
   margin: 0 auto;
@@ -91,11 +138,11 @@ main {
 }
 
 /* ==========================================================================
-   3. Home Page Components
+   3. Page Components & Grid
    ========================================================================== */
 
 /* Hero Banner */
-section[aria-labelledby="hero-heading"] {
+.hero-section {
   background-color: var(--color-card-bg);
   border: 2px solid var(--color-border);
   border-radius: 8px;
@@ -104,24 +151,24 @@ section[aria-labelledby="hero-heading"] {
   text-align: center;
 }
 
-section[aria-labelledby="hero-heading"] h1 {
+.hero-section h1 {
   font-size: 2.25rem;
   color: var(--color-primary);
   margin-bottom: 1rem;
   line-height: 1.2;
 }
 
-section[aria-labelledby="hero-heading"] p {
+.hero-section p {
   font-size: 1.2rem;
   max-width: 600px;
   margin: 0 auto 2rem auto;
 }
 
-/* Accessible Button / CTA links */
+/* Primary buttons */
 .btn {
   display: inline-block;
   background-color: var(--color-primary);
-  color: #FFFFFF; /* High contrast: 7.3:1 against primary */
+  color: #FFFFFF;
   text-decoration: none;
   font-weight: 700;
   padding: 0.8rem 2rem;
@@ -159,8 +206,10 @@ section[aria-labelledby="hero-heading"] p {
 
 .product-card img {
   border-radius: 6px;
-  background-color: #F0EDE6; /* Fallback frame block */
+  background-color: #F0EDE6; 
   margin-bottom: 1rem;
+  max-width: 100%;
+  height: auto;
 }
 
 .product-card h3 {
@@ -172,17 +221,18 @@ section[aria-labelledby="hero-heading"] p {
 .product-card .condition {
   font-size: 0.9rem;
   font-weight: 600;
-  color: var(--color-accent); /* 7.1:1 against white/cream */
-  margin-bottom: 1rem;
+  color: var(--color-accent);
+  margin-bottom: 0.75rem;
 }
 
+/* Styled so it does not trigger visual heuristic "Header" warnings in WAVE */
 .product-card .price {
-  font-size: 1.4rem;
-  font-weight: 800;
+  font-size: 1.15rem; 
+  font-weight: 700;
+  color: var(--color-text-main);
   margin-bottom: 1.2rem;
 }
 
-/* Add to Cart Button styling */
 .product-card button {
   background-color: var(--color-primary);
   color: #FFFFFF;
@@ -192,7 +242,7 @@ section[aria-labelledby="hero-heading"] p {
   font-weight: 700;
   cursor: pointer;
   width: 100%;
-  margin-top: auto; /* Aligns buttons perfectly in grid rows */
+  margin-top: auto; 
   transition: background-color 0.2s ease;
 }
 
