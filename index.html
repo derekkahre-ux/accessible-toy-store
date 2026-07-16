@@ -39,15 +39,23 @@
     <a href="#main-content" class="skip-link">Skip to main content</a>
 
     <header>
-        <div class="logo">Archival Play</div>
-        <nav aria-label="Main Navigation">
-            <ul>
-                <li><a href="/">Home</a></li>
-                <li><a href="/shop">Shop Toys</a></li>
-                <li><a href="/about">Our Story</a></li>
-            </ul>
-        </nav>
-    </header>
+    <div class="logo">Archival Play</div>
+    <nav aria-label="Main Navigation">
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/shop">Shop Toys</a></li>
+            <li><a href="/about">Our Story</a></li>
+            <!-- Added an interactive, accessible cart counter -->
+            <li>
+                <button id="cart-btn" aria-label="Cart, 0 items" style="background: none; border: none; font-family: inherit; font-size: 1.1rem; font-weight: bold; cursor: pointer; color: var(--color-text-main); padding: 0.5rem;">
+                    🛒 Cart (<span id="cart-count">0</span>)
+                </button>
+            </li>
+        </ul>
+    </nav>
+    <!-- Invisible to sighted users, but announces cart changes to screen readers instantly -->
+    <div id="cart-announcer" class="sr-only" aria-live="polite" style="position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); border: 0;"></div>
+</header>
 
     <main id="main-content">
         
