@@ -3,74 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <!-- Clean, professional title for customers -->
     <title>Archival Play | Vintage Happy Meal & Retro Toys</title>
     
-    <!-- Clean SEO description (no tech-speak, just good marketing) -->
+    <!-- SEO & Accessibility Search Description -->
     <meta name="description" content="Relive your childhood with our curated collection of vintage McDonald's and retro Happy Meal toys. Carefully collected, safely shipped.">
     
-    <style>
-        img {
-            max-width: 100%;
-            height: auto;
-        }
-        /* Hidden off-screen until a keyboard user tabs to it */
-        .skip-link {
-            position: absolute;
-            top: -40px;
-            left: 0;
-            background: #D12626; /* Fun retro red instead of boring black */
-            color: #fff;
-            padding: 10px;
-            z-index: 100;
-            font-family: sans-serif;
-            text-decoration: none;
-            font-weight: bold;
-        }
-        .skip-link:focus {
-            top: 0;
-        }
-    </style>
+    <!-- Link to external AAA Compliant Stylesheet -->
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-    <!-- Accessible skip link remains, but is invisible to casual mouse users -->
+    <!-- Accessible skip link (visible only on keyboard tab focus) -->
     <a href="#main-content" class="skip-link">Skip to main content</a>
 
+    <!-- Header & Navigation Area -->
     <header>
-    <div class="logo">Archival Play</div>
-    <nav aria-label="Main Navigation">
-        <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/shop">Shop Toys</a></li>
-            <li><a href="/about">Our Story</a></li>
-            <!-- Added an interactive, accessible cart counter -->
-            <li>
-                <button id="cart-btn" aria-label="Cart, 0 items" style="background: none; border: none; font-family: inherit; font-size: 1.1rem; font-weight: bold; cursor: pointer; color: var(--color-text-main); padding: 0.5rem;">
-                    🛒 Cart (<span id="cart-count">0</span>)
-                </button>
-            </li>
-        </ul>
-    </nav>
-    <!-- Invisible to sighted users, but announces cart changes to screen readers instantly -->
-    <div id="cart-announcer" class="sr-only" aria-live="polite" style="position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); border: 0;"></div>
-</header>
+        <div class="logo">Archival Play</div>
+        <nav aria-label="Main Navigation">
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/shop">Shop Toys</a></li>
+                <li><a href="/about">Our Story</a></li>
+                <!-- Interactive, accessible cart counter button -->
+                <li>
+                    <button id="cart-btn" aria-label="Cart, 0 items" class="cart-nav-btn">
+                        🛒 Cart (<span id="cart-count">0</span>)
+                    </button>
+                </li>
+            </ul>
+        </nav>
+        <!-- Dynamic screen-reader announcer for cart updates -->
+        <div id="cart-announcer" class="sr-only" aria-live="polite"></div>
+    </header>
 
+    <!-- Main Content Area -->
     <main id="main-content">
         
-        <section aria-labelledby="hero-heading">
-            <!-- Warm, nostalgic copywriting -->
+        <!-- Nostalgic Hero Section -->
+        <section aria-labelledby="hero-heading" class="hero-section">
             <h1 id="hero-heading">Bring Home a Piece of Your Childhood</h1>
             <p>Explore a carefully curated archive of rare McDonald's toys from decades of collecting.</p>
             <a href="/shop" class="btn">Browse the Archive</a>
         </section>
 
+        <!-- Featured Products Grid -->
         <section aria-labelledby="featured-heading">
             <h2 id="featured-heading">Featured Collectibles</h2>
             <div class="product-grid">
 
-                <!-- Product 1 (Clean structural accessibility, pure nostalgia copy) -->
+                <!-- Product 1: Changeable -->
                 <article class="product-card">
                     <img src="changeable-burger.jpg" 
                          alt="1989 McDonald's Changeable toy. A plastic hamburger that transforms into a robot."
@@ -78,12 +59,13 @@
                          height="300">
                     <h3>1989 Hamburger Changeable (Robot)</h3>
                     <p class="condition">Condition: Excellent (Loose)</p>
-                    <p class="price">$12.99</p>
-                    <!-- Screen readers hear the specific product name, customers just see "Add to Cart" -->
+                    <p class="price">
+                        <data value="12.99">$12.99</data>
+                    </p>
                     <button aria-label="Add 1989 Hamburger Changeable to cart">Add to Cart</button>
                 </article>
 
-                <!-- Product 2 -->
+                <!-- Product 2: Halloween McNugget -->
                 <article class="product-card">
                     <img src="mcnugget-buddy-halloween.jpg" 
                          alt="1992 Halloween McNugget Buddy wearing a removable purple witch hat."
@@ -91,7 +73,9 @@
                          height="300">
                     <h3>1992 Witch Halloween McNugget Buddy</h3>
                     <p class="condition">Condition: Minor paint wear</p>
-                    <p class="price">$9.50</p>
+                    <p class="price">
+                        <data value="9.50">$9.50</data>
+                    </p>
                     <button aria-label="Add 1992 Witch Halloween McNugget Buddy to cart">Add to Cart</button>
                 </article>
 
@@ -100,10 +84,12 @@
 
     </main>
 
+    <!-- Footer -->
     <footer>
-        <!-- Professional, warm copyright -->
         <p>&copy; 2026 Archival Play. Dedicated to preserving play.</p>
     </footer>
-<script src="app.js"></script>
+
+    <!-- Accessible Cart JS Link -->
+    <script src="app.js"></script>
 </body>
 </html>
