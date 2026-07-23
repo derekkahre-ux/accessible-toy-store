@@ -1,5 +1,5 @@
 // ==========================================================================
-// Archival Play - Accessible Cart Controller
+// Archival Play - Accessible Storefront & Cart Controller
 // ==========================================================================
 
 // Track our cart state (Using a Set ensures unique vintage items are only added once)
@@ -9,7 +9,7 @@ let cart = new Set();
 const cartCountEl = document.getElementById('cart-count');
 const cartBtnEl = document.getElementById('cart-btn');
 const cartAnnouncer = document.getElementById('cart-announcer');
-const addToCartButtons = document.querySelectorAll('.product-card button');
+const productGrid = document.getElementById('product-grid');
 
 /**
  * Updates the visual cart counter and the invisible accessibility announcer
@@ -28,11 +28,46 @@ function updateCartUI(message) {
   }
 }
 
-// Add event listeners to all "Add to Cart" buttons
-addToCartButtons.forEach(button => {
-  button.addEventListener('click', (event) => {
-    // Find the closest product card to read the specific toy's title
-    const productCard = event.target.closest('.product-card');
+// ==========================================================================
+// 1. Fetch & Render Toys from JSON
+// ==========================================================================
+fetch('toys.json')
+  .then(response => response.json())
+  .then(toys => {
+    // Clear out any old content before appending
+    productGrid.innerHTML = '';
+    
+    toys.forEach(toy => {
+      const card = document.createElement('article');
+      card.classList.add('product-card');
+      
+      card.innerHTML = `
+        <img src="${toy.image}" 
+             alt="${toy.altText}" 
+             width="300" 
+             height="300">
+        <h3>${toy.name}</h3>
+        <p class="condition">Condition: ${toy.condition}</p>
+        <p class="price">
+            <data value="${toy.priceNum}">${toy.priceStr}</data>
+        </p>
+        <button aria-label="Add ${toy.name} to cart">Add to Cart</button>
+      `;
+      
+      productGrid.appendChild(card);
+    });
+  })
+  .catch(error => console.error('Error loading toys from JSON:', error));
+
+// ==========================================================================
+// 2. Add to Cart Event Listener (Event Delegation)
+// ==========================================================================
+// Listen on the parent grid container so dynamically created buttons work instantly!
+productGrid.addEventListener('click', (event) => {
+  // Check if the clicked element was an "Add to Cart" button inside a card
+  if (event.target.tagName === 'BUTTON') {
+    const button = event.target;
+    const productCard = button.closest('.product-card');
     const toyTitle = productCard.querySelector('h3').textContent;
 
     if (cart.has(toyTitle)) {
@@ -44,11 +79,11 @@ addToCartButtons.forEach(button => {
       cart.add(toyTitle);
       
       // Update button visual state slightly to show it's added
-      event.target.textContent = "Added!";
-      event.target.style.backgroundColor = "var(--color-accent)";
+      button.textContent = "Added!";
+      button.style.backgroundColor = "var(--color-accent)";
       
       // Update UI and read out success message to screen readers
       updateCartUI(`${toyTitle} successfully added to cart.`);
     }
-  });
+  }
 });
