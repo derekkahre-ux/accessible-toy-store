@@ -369,3 +369,10 @@ footer {
   margin-top: 4rem;
   font-size: 0.95rem;
 }
+
+/* Ensure all product images scale down on smaller screens */
+.product-card img {
+  max-width: 100%;
+  height: auto;
+  object-fit: cover; /* Keeps image proportions crisp without stretching */
+}
