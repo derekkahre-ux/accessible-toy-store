@@ -49,37 +49,9 @@
         <!-- Featured Products Grid -->
         <section aria-labelledby="featured-heading">
             <h2 id="featured-heading">Featured Collectibles</h2>
-            <div class="product-grid">
-
-                <!-- Product 1: Changeable -->
-                <article class="product-card">
-                    <img src="changeable-burger.jpg" 
-                         alt="1989 McDonald's Changeable toy. A plastic hamburger that transforms into a robot."
-                         width="300"
-                         height="300">
-                    <h3>1989 Hamburger Changeable (Robot)</h3>
-                    <p class="condition">Condition: Excellent (Loose)</p>
-                    <p class="price">
-                        <data value="12.99">$12.99</data>
-                    </p>
-                    <button aria-label="Add 1989 Hamburger Changeable to cart">Add to Cart</button>
-                </article>
-
-                <!-- Product 2: Halloween McNugget -->
-                <article class="product-card">
-                    <img src="mcnugget-buddy-halloween.jpg" 
-                         alt="1992 Halloween McNugget Buddy wearing a removable purple witch hat."
-                         width="300"
-                         height="300">
-                    <h3>1992 Witch Halloween McNugget Buddy</h3>
-                    <p class="condition">Condition: Minor paint wear</p>
-                    <p class="price">
-                        <data value="9.50">$9.50</data>
-                    </p>
-                    <button aria-label="Add 1992 Witch Halloween McNugget Buddy to cart">Add to Cart</button>
-                </article>
-
-            </div>
+            
+            <!-- Dynamic Container: JavaScript will populate products here from toys.json -->
+            <div id="product-grid" class="product-grid"></div>
         </section>
 
     </main>
@@ -89,7 +61,8 @@
         <p>&copy; 2026 Archival Play. Dedicated to preserving play.</p>
     </footer>
 
-    <!-- Accessible Cart JS Link -->
+    <!-- JavaScript Files -->
     <script src="app.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
