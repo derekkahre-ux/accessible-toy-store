@@ -1,0 +1,22 @@
+[
+  {
+    "id": "toy-001",
+    "name": "Classic McDonald's Fry Box Transformer",
+    "year": 1990,
+    "category": "Vintage",
+    "price": "$8.99",
+    "accessibleFeatures": "High-contrast colors, easy-grip tactile edges",
+    "image": "images/fry-transformer.jpg",
+    "altText": "Red plastic McDonald's fry box that transforms into a robot"
+  },
+  {
+    "id": "toy-002",
+    "name": "Grimace Plush",
+    "year": 1995,
+    "category": "Plush",
+    "price": "$6.50",
+    "accessibleFeatures": "Soft texture, no sharp plastic components",
+    "image": "images/grimace-plush.jpg",
+    "altText": "Purple plush toy shaped like Grimace"
+  }
+]
