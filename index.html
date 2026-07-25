@@ -16,25 +16,8 @@
     <!-- Accessible skip link (visible only on keyboard tab focus) -->
     <a href="#main-content" class="skip-link">Skip to main content</a>
 
-    <!-- Header & Navigation Area -->
-    <header>
-        <div class="logo">Archival Play</div>
-        <nav aria-label="Main Navigation">
-            <ul>
-                <li><a href="index.html" aria-current="page">Home</a></li>
-                <li><a href="#featured-heading">Shop Toys</a></li>
-                <li><a href="about.html">About the Archive</a></li>
-                <!-- Interactive, accessible cart counter pill -->
-                <li>
-                    <button id="cart-btn" aria-label="Cart, 0 items" class="cart-nav-btn">
-                        🛒 Cart (<span id="cart-count">0</span>)
-                    </button>
-                </li>
-            </ul>
-        </nav>
-        <!-- Dynamic screen-reader announcer for cart updates -->
-        <div id="cart-announcer" class="sr-only" aria-live="polite"></div>
-    </header>
+    <!-- Header & Navigation Area (Populated dynamically from nav.html) -->
+    <header id="main-header"></header>
 
     <!-- Main Content Area -->
     <main id="main-content">
@@ -62,6 +45,7 @@
     </footer>
 
     <!-- JavaScript Files -->
+    <script src="nav-loader.js"></script>
     <script src="app.js"></script>
     <script src="script.js"></script>
 </body>
