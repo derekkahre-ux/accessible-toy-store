@@ -1,10 +1,17 @@
 <!-- nav.html -->
-<header class="bg-primary text-white p-4">
-  <nav class="flex justify-between items-center max-w-4xl mx-auto">
-    <a href="index.html" class="font-bold text-lg">McDonald's Toy Store</a>
-    <ul class="flex space-x-4">
-      <li><a href="index.html" class="hover:underline">Home</a></li>
-      <li><a href="about.html" class="hover:underline">About</a></li>
-    </ul>
-  </nav>
+<header>
+    <div class="logo">Archival Play</div>
+    <nav aria-label="Main Navigation">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#featured-heading">Shop Toys</a></li>
+            <li><a href="about.html">About the Archive</a></li>
+            <li>
+                <button id="cart-btn" aria-label="Cart, 0 items" class="cart-nav-btn">
+                    🛒 Cart (<span id="cart-count">0</span>)
+                </button>
+            </li>
+        </ul>
+    </nav>
+    <div id="cart-announcer" class="sr-only" aria-live="polite"></div>
 </header>
