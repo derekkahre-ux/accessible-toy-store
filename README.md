@@ -1,10 +1,10 @@
-# 🧸 Accessible McDonald's Nostalgia Toy Store
+# Accessible McDonald's Nostalgia Toy Store
 
 A lightweight, accessible, and modular web application showcasing a personal collection of classic McDonald's nostalgic toys. Designed with modern web standards, semantic HTML, and user preference controls.
 
 ---
 
-## ✨ Features
+##  Features
 
 * **Dynamic Inventory:** Toy items, descriptions, and imagery are dynamically driven from a structured JSON dataset (`toys.json`), making data updates seamless and scalable without hardcoding HTML.
 * **Accessibility (a11y) First:**
@@ -18,7 +18,7 @@ A lightweight, accessible, and modular web application showcasing a personal col
 
 ---
 
-## 🛠️ Tech Stack
+##  Tech Stack
 
 * **Frontend:** HTML5, Modern CSS3, JavaScript (ES6+)
 * **Data Management:** JSON
@@ -26,7 +26,7 @@ A lightweight, accessible, and modular web application showcasing a personal col
 
 ---
 
-## 📂 Project Structure
+##  Project Structure
 
 ```text
 ├── index.html        # Main storefront view
@@ -42,7 +42,7 @@ A lightweight, accessible, and modular web application showcasing a personal col
 
 ---
 
-## 💡 Key Engineering Challenges & Solutions
+##  Engineering Challenges & Solutions
 
 ### 1. DRY Navigation Component Loading
 
@@ -62,7 +62,7 @@ A lightweight, accessible, and modular web application showcasing a personal col
 ---
 
 
-## 🤝 Lessons Learned & Development Log
+## Lessons Learned & Development Log
 
 This project was built iteratively as part of an ongoing hands-on software development and web accessibility journey. Key highlights include learning Network tab DevTools debugging, WCAG contrast compliance, and structuring clean git workflows.
 
