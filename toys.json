@@ -6,7 +6,7 @@
     "category": "Vintage",
     "price": "$8.99",
     "accessibleFeatures": "High-contrast colors, easy-grip tactile edges",
-    "image": "images/fry-transformer.jpg",
+    "image": "public/images/Mcdonalds_2.jpg",
     "altText": "Red plastic McDonald's fry box that transforms into a robot"
   },
   {
@@ -16,7 +16,7 @@
     "category": "Plush",
     "price": "$6.50",
     "accessibleFeatures": "Soft texture, no sharp plastic components",
-    "image": "images/grimace-plush.jpg",
+    "image": "public/images/Neopets_8.jpg",
     "altText": "Purple plush toy shaped like Grimace"
   }
 ]
