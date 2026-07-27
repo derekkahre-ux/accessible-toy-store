@@ -65,5 +65,3 @@ A lightweight, accessible, and modular web application showcasing a personal col
 ## Lessons Learned & Development Log
 
 This project was built iteratively as part of an ongoing hands-on software development and web accessibility journey. Key highlights include learning Network tab DevTools debugging, WCAG contrast compliance, and structuring clean git workflows.
-
-```
