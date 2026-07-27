@@ -67,7 +67,3 @@ A lightweight, accessible, and modular web application showcasing a personal col
 This project was built iteratively as part of an ongoing hands-on software development and web accessibility journey. Key highlights include learning Network tab DevTools debugging, WCAG contrast compliance, and structuring clean git workflows.
 
 ```
-
-*Note: Just make sure to replace `YOUR_USERNAME` and `YOUR_REPOSITORY_NAME` with your actual GitHub path before saving!*
-
-```
