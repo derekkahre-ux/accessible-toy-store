@@ -144,6 +144,52 @@ nav a[aria-current="page"] {
   top: 0;
 }
 
+/* --- Desktop Styles (Default) --- */
+.nav-toggle {
+  display: none; /* Hide button on desktop */
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 1.5rem;
+}
+
+/* --- Mobile Styles (Screens 768px and under) --- */
+@media (max-width: 768px) {
+  .nav-toggle {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+  }
+
+  /* Draw the 3 lines inside the button */
+  .hamburger-bar {
+    height: 3px;
+    width: 100%;
+    background-color: #000000;
+    border-radius: 2px;
+  }
+
+  /* Hide the link menu by default on mobile */
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    padding: 1rem 0;
+  }
+
+  /* When JS adds the .open class, show the menu */
+  .nav-links.open {
+    display: flex;
+  }
+}
+
 main {
   max-width: 1100px;
   margin: 0 auto;
