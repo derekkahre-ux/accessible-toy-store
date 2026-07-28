@@ -411,15 +411,18 @@ footer {
   object-fit: cover; /* Keeps image proportions crisp without stretching */
 }
 
-/* --- Mobile Styles (Screens 768px and under) --- */
 @media (max-width: 768px) {
-  .nav-toggle {
-    display: flex;
+  /* Match the full path: header nav ul */
+  nav ul,
+  nav .nav-links {
+    display: none;
     flex-direction: column;
-    justify-content: space-between;
-    width: 30px;
-    height: 21px;
-    background: transparent;
-    border: none;
-    cursor: pointer;
+    width: 100%;
   }
+
+  /* Force display when the open class is present */
+  nav ul.open,
+  nav .nav-links.open {
+    display: flex;
+  }
+}
