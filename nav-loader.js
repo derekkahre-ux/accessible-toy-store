@@ -42,3 +42,22 @@ if (document.readyState === 'loading') {
 } else {
     loadNavigation();
 }
+
+// Function to initialize the hamburger button
+function initMobileMenu() {
+  const toggleBtn = document.querySelector('.nav-toggle');
+  const navLinks = document.querySelector('.nav-links');
+
+  if (toggleBtn && navLinks) {
+    toggleBtn.addEventListener('click', () => {
+      // Toggle the 'open' CSS class on the link menu
+      const isOpen = navLinks.classList.toggle('open');
+      
+      // Update accessibility attribute for screen readers
+      toggleBtn.setAttribute('aria-expanded', isOpen);
+    });
+  }
+}
+
+// Call initMobileMenu right after your fetch() injects nav.html into the DOM
+document.addEventListener('navigationLoaded', initMobileMenu);
