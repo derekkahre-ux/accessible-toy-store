@@ -155,18 +155,6 @@ nav a[aria-current="page"] {
   gap: 1.5rem;
 }
 
-/* --- Mobile Styles (Screens 768px and under) --- */
-@media (max-width: 768px) {
-  .nav-toggle {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    width: 30px;
-    height: 21px;
-    background: transparent;
-    border: none;
-    cursor: pointer;
-  }
 
   /* Draw the 3 lines inside the button */
   .hamburger-bar {
@@ -422,3 +410,16 @@ footer {
   height: auto;
   object-fit: cover; /* Keeps image proportions crisp without stretching */
 }
+
+/* --- Mobile Styles (Screens 768px and under) --- */
+@media (max-width: 768px) {
+  .nav-toggle {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+  }
