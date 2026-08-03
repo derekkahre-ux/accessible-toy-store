@@ -53,9 +53,6 @@ A lightweight, highly accessible, and modular e-commerce storefront showcasing c
 
 * **Challenge:** Shopping cart items were cleared on page refresh or when navigating between `index.html` and `about.html`.
 * **Solution:** Refactored state handling to synchronize cart data with browser storage, maintaining item state across page transitions.
-
----
-
 ## 📖 Development Log & Lessons Learned
 
 Built iteratively as part of a hands-on web engineering journey. Key competencies gained include Network tab DevTools debugging, WCAG contrast compliance, modular component design, and zero-dependency state management.
