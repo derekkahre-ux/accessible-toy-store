@@ -1,4 +1,3 @@
-```markdown
 # PlayAble Toys (Accessible Nostalgia Storefront)
 
 A lightweight, highly accessible, and modular e-commerce storefront showcasing classic nostalgic toys. Built with modern web standards, semantic HTML, dynamic JSON inventory management, and user preference controls.
@@ -60,7 +59,5 @@ A lightweight, highly accessible, and modular e-commerce storefront showcasing c
 ## 📖 Development Log & Lessons Learned
 
 Built iteratively as part of a hands-on web engineering journey. Key competencies gained include Network tab DevTools debugging, WCAG contrast compliance, modular component design, and zero-dependency state management.
-
-```
 
 ```
