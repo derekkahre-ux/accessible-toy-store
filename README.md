@@ -1,32 +1,28 @@
-# Accessible McDonald's Nostalgia Toy Store
+```markdown
+# PlayAble Toys (Accessible Nostalgia Storefront)
 
-A lightweight, accessible, and modular web application showcasing a personal collection of classic McDonald's nostalgic toys. Designed with modern web standards, semantic HTML, and user preference controls.
-
----
-
-##  Features
-
-* **Dynamic Inventory:** Toy items, descriptions, and imagery are dynamically driven from a structured JSON dataset (`toys.json`), making data updates seamless and scalable without hardcoding HTML.
-* **Accessibility (a11y) First:**
-  * Fully tested using the **WAVE Evaluation Tool** to ensure high contrast, proper landmark regions, and fix heading hierarchy alerts.
-  * Native Light/Dark mode toggle switch respecting user contrast preferences.
-  * Dynamic `aria-current="page"` attributes injected via JS for accurate screen-reader navigation context.
-* **Modular UI Architecture:**
-  * Shared navigation menu asynchronously injected via `fetch()` (`nav-loader.js`) to keep code DRY across multi-page views (`index.html`, `about.html`).
-  * Custom event listener architecture (`navigationLoaded`) ensuring DOM element availability before binding dynamic handlers.
-* **Persistent Cart Experience:** Session-aware shopping cart state that preserves selected items across page updates and sub-page navigations.
+A lightweight, highly accessible, and modular e-commerce storefront showcasing classic nostalgic toys. Built with modern web standards, semantic HTML, dynamic JSON inventory management, and user preference controls.
 
 ---
 
-##  Tech Stack
+## 🛠️ Tech Stack & Tools
 
-* **Frontend:** HTML5, Modern CSS3, JavaScript (ES6+)
-* **Data Management:** JSON
-* **Accessibility Testing:** WAVE Web Accessibility Evaluation Tool
+* **Frontend:** HTML5, CSS3, JavaScript (ES6+), Tailwind CSS
+* **Backend & Database:** Supabase (PostgreSQL RESTful API integration)
+* **Accessibility & QA:** WAVE Web Accessibility Evaluation Tool, WCAG 2.1 AA Standards, Semantic Markup, ARIA
 
 ---
 
-##  Project Structure
+## Key Highlights & Engineering Achievements
+
+* **♿ Accessibility First (a11y):** Fully audited with the **WAVE Evaluation Tool** to ensure high contrast compliance, proper landmark regions, keyboard-first navigation, and a semantic heading hierarchy. Features custom high-contrast toggle themes respecting user display preferences.
+* **📦 Dynamic Inventory & Backend Integration:** Driven by structured JSON data (`toys.json`) and connected to a **Supabase (PostgreSQL)** backend to dynamically manage product inventory and handle user reviews.
+* **🧩 Modular UI Architecture:** Shared navigation menu asynchronously injected via `fetch()` (`nav-loader.js`) to keep code DRY across multi-page views (`index.html`, `about.html`) with dynamic `aria-current="page"` accessibility state management.
+* **🛒 Persistent Shopping Cart State:** Session-aware cart logic that preserves selected items across page updates and sub-page navigations without resetting client state.
+
+---
+
+## 📁 Project Structure
 
 ```text
 ├── index.html        # Main storefront view
@@ -42,26 +38,29 @@ A lightweight, accessible, and modular web application showcasing a personal col
 
 ---
 
-##  Engineering Challenges & Solutions
+## 🧠 Engineering Challenges & Solutions
 
 ### 1. DRY Navigation Component Loading
 
-* **Challenge:** Updating navigation links across 20+ static HTML pages quickly becomes a maintenance nightmare.
-* **Solution:** Decoupled the navigation into a single `nav.html` file fetched dynamically by `nav-loader.js`.
+* **Challenge:** Updating navigation links across multiple static HTML pages created redundant maintenance overhead.
+* **Solution:** Decoupled the navigation into a single `nav.html` component fetched dynamically by `nav-loader.js`.
 
-### 2. Script Timing & DOM Readiness
+### 2. Script Timing & Asynchronous DOM Execution
 
-* **Challenge:** The primary app script (`app.js`) needed to attach cart events to elements inside `nav.html`, but `fetch()` is asynchronous—causing `null` reference errors when `app.js` ran before `nav.html` finished loading.
-* **Solution:** Built a custom event pipeline. `nav-loader.js` emits a custom `navigationLoaded` event as soon as the HTML snippet is attached to the DOM, prompting `app.js` to execute safely.
+* **Challenge:** The primary application script (`app.js`) needed to attach cart events to elements inside `nav.html`. However, `fetch()` runs asynchronously, causing `null` reference errors when `app.js` executed before the DOM injection finished.
+* **Solution:** Built a custom event pipeline. `nav-loader.js` dispatches a custom `navigationLoaded` event as soon as the HTML snippet is attached to the DOM, prompting `app.js` to execute safely.
 
-### 3. Persistent Cart Across Page Navigation
+### 3. State Persistence Across Multi-Page Navigations
 
-* **Challenge:** Cart items were lost on page refresh or when switching from `index.html` to `about.html`.
-* **Solution:** Refactored state handling to synchronize cart data with browser storage, preserving items across multi-page transitions.
+* **Challenge:** Shopping cart items were cleared on page refresh or when navigating between `index.html` and `about.html`.
+* **Solution:** Refactored state handling to synchronize cart data with browser storage, maintaining item state across page transitions.
 
 ---
 
+## 📖 Development Log & Lessons Learned
 
-## Lessons Learned & Development Log
+Built iteratively as part of a hands-on web engineering journey. Key competencies gained include Network tab DevTools debugging, WCAG contrast compliance, modular component design, and zero-dependency state management.
 
-This project was built iteratively as part of an ongoing hands-on software development and web accessibility journey. Key highlights include learning Network tab DevTools debugging, WCAG contrast compliance, and structuring clean git workflows.
+```
+
+```
