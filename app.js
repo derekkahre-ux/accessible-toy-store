@@ -2,20 +2,33 @@
 // Archival Play - Accessible Storefront & Cart Controller
 // ==========================================================================
 
-// Track our cart state
-let cart = new Set();
+// Helper functions for localStorage persistence (Sets must be converted to/from Arrays for JSON)
+function loadCartFromStorage() {
+    const savedCart = localStorage.getItem('playAbleCart');
+    return savedCart ? new Set(JSON.parse(savedCart)) : new Set();
+}
+
+function saveCartToStorage() {
+    localStorage.setItem('playAbleCart', JSON.stringify(Array.from(cart)));
+}
+
+// Track our cart state (initialized from localStorage)
+let cart = loadCartFromStorage();
 
 // DOM Element references (defined once navigation loads)
 let cartCountEl, cartBtnEl, cartAnnouncer;
 const productGrid = document.getElementById('product-grid');
 
 /**
- * Initializes DOM elements for the cart header
+ * Initializes DOM elements for the cart header and syncs initial UI state
  */
 function initCartElements() {
     cartCountEl = document.getElementById('cart-count');
     cartBtnEl = document.getElementById('cart-btn');
     cartAnnouncer = document.getElementById('cart-announcer');
+
+    // Update UI immediately when navigation elements load
+    updateCartUI();
 }
 
 /**
@@ -36,7 +49,8 @@ function updateCartUI(message) {
     }
 }
 
-// Listen for navigation completion before setting up cart elements
+// Sync cart UI on DOM load and when header navigation loads dynamically
+document.addEventListener('DOMContentLoaded', () => updateCartUI());
 document.addEventListener('navigationLoaded', initCartElements);
 
 // ==========================================================================
@@ -52,6 +66,8 @@ if (productGrid) {
           const card = document.createElement('article');
           card.classList.add('product-card');
           
+          const isAlreadyInCart = cart.has(toy.name);
+          
           card.innerHTML = `
             <img src="${toy.image}" 
                  alt="${toy.altText}" 
@@ -62,7 +78,10 @@ if (productGrid) {
             <p class="price">
                 <data value="${toy.priceNum}">${toy.priceStr}</data>
             </p>
-            <button aria-label="Add ${toy.name} to cart">Add to Cart</button>
+            <button aria-label="Add ${toy.name} to cart" 
+                    ${isAlreadyInCart ? 'style="background-color: var(--color-accent);"' : ''}>
+              ${isAlreadyInCart ? 'Added!' : 'Add to Cart'}
+            </button>
           `;
           
           productGrid.appendChild(card);
@@ -84,6 +103,7 @@ if (productGrid) {
           alert(`"${toyTitle}" is already in your cart. Since these are unique vintage collectibles, we only have one available!`);
         } else {
           cart.add(toyTitle);
+          saveCartToStorage(); // Save updated Set to localStorage
           
           button.textContent = "Added!";
           button.style.backgroundColor = "var(--color-accent)";
