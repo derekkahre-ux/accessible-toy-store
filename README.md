@@ -95,6 +95,3 @@ document.addEventListener('navigationLoaded', () => {
 ## 📖 Development Log & Lessons Learned
 
 Built iteratively as part of a hands-on web engineering journey. Key competencies gained include Network tab DevTools debugging, WCAG contrast compliance, modular component design, and zero-dependency state management.
-```
-
-```
