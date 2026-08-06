@@ -1,4 +1,3 @@
-```markdown
 # PlayAble Toys (Accessible Nostalgia Storefront)
 
 A lightweight, highly accessible, and modular e-commerce storefront showcasing classic nostalgic toys. Built with modern web standards, semantic HTML, dynamic JSON inventory management, and user preference controls.
