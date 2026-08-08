@@ -21,7 +21,7 @@ function saveCartToStorage() {
   }
 }
 
-// Track our cart state (initialized from localStorage)
+// Track cart state (initialized from localStorage)
 let cart = loadCartFromStorage();
 
 // DOM Element references (defined once navigation loads)
@@ -36,7 +36,7 @@ function initCartElements() {
   cartBtnEl = document.getElementById('cart-btn');
   cartAnnouncer = document.getElementById('cart-announcer');
 
-  // Sync UI now that header elements are present in the DOM
+  // Sync UI immediately once header elements are present in the DOM
   updateCartUI();
 }
 
@@ -86,9 +86,16 @@ function clearCart() {
   }
 }
 
-// Sync cart UI on DOM load and when header navigation loads dynamically
-document.addEventListener('DOMContentLoaded', () => updateCartUI());
+// Ensure elements bind regardless of whether navigationLoaded or DOMContentLoaded finishes first
 document.addEventListener('navigationLoaded', initCartElements);
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', () => {
+    if (document.getElementById('cart-count')) initCartElements();
+  });
+} else if (document.getElementById('cart-count')) {
+  initCartElements();
+}
 
 // Sync state across multiple open tabs/windows
 window.addEventListener('storage', (event) => {
